@@ -1059,9 +1059,12 @@ dst_part_base=$dst_disk
 
 if [[ ${chk_disk: -1} =~ ^[0-9]$ ]]
 then
-	if [[ $dst_disk == *"mmcblk"* ]]
+	if [[ $dst_disk == *"mmcblk"* ]] || [[ $dst_disk == *"nbd"* ]] || [[ $dst_disk == *"nvme"* ]]
 	then
-		SD_slot_dst=1
+		if [[ $dst_disk == *"mmcblk"* ]]
+		then
+			SD_slot_dst=1
+		fi
 		dst_part_base=${dst_disk}p
 		if    [ "$edit_fstab_name" == "" ] \
 		   && ! grep -q "^PARTUUID=" /etc/fstab
