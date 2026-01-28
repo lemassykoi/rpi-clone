@@ -1,5 +1,7 @@
 ## rpi-clone
-Latest version: 2.0.22
+Latest version: 2.1
+
+- added support for both nbd and nvme (which suffers from the same issue) by forcing the p separator
 
 Version 2 is a complete rewrite with improved capability over
 the original.  See the examples below.
